@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 658342750}
   - component: {fileID: 658342749}
   - component: {fileID: 658342748}
+  - component: {fileID: 658342752}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Untagged
@@ -680,7 +681,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -692,8 +693,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!58 &658342749
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -796,6 +797,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658342752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658342747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c26b97e60b57f9479e640c33b5cbde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 10
 --- !u!1 &720380400
 GameObject:
   m_ObjectHideFlags: 0
