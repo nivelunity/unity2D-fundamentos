@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Plataformas
+  - Enemigos
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fondo
+    uniqueID: 2507925919
+    locked: 0
+  - name: Mapa
+    uniqueID: 2836645863
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Frente
+    uniqueID: 3801653157
     locked: 0
