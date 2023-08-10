@@ -8,14 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3521257914968497336, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 129
+      objectReference: {fileID: 0}
     - target: {fileID: 6286391142824317050, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_Size.x
-      value: 3.7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6286391142824317050, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 49a61972ed8354b42b37d3a00dd4adc9, type: 3}
+      objectReference: {fileID: 21300000, guid: 9f2fcea7dee5793419a676e0ac3479b7, type: 3}
     - target: {fileID: 6286391142824317050, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -26,23 +30,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635888319666387836, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_SpriteTilingProperty.border.w
-      value: 0.055555556
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635888319666387836, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_SpriteTilingProperty.border.x
-      value: 0.055555556
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635888319666387836, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_SpriteTilingProperty.border.y
-      value: 0.055555556
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635888319666387836, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_SpriteTilingProperty.border.z
-      value: 0.055555556
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6635888319666387836, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 3.7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7104054941003594934, guid: 472cd908d6c389e43b070777a4fa994a, type: 3}
       propertyPath: m_LocalPosition.x
