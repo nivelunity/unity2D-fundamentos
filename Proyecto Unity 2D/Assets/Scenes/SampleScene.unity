@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 574780524}
   - component: {fileID: 574780523}
   - component: {fileID: 574780522}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
