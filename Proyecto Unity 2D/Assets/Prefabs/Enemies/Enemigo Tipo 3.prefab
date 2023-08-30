@@ -25,6 +25,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -136746913, guid: 295e5c46f6b307b45b217083d776058e, type: 3}
     - target: {fileID: 5938581357859726892, guid: 75467c3b8f87fdf4ebf84025dd56b940, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938581357859726892, guid: 75467c3b8f87fdf4ebf84025dd56b940, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
