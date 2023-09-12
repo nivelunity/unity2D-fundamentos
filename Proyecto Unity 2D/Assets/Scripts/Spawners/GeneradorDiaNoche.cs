@@ -13,18 +13,17 @@ public class GeneradorDiaNoche : MonoBehaviour
     void Start()
     {
         diaColor = camara.backgroundColor;
-        InvokeRepeating("CambiarColor", segundos, segundos);
+        StartCoroutine(CambiarColor(segundos)); ;
     }
 
-    void CambiarColor()
+    IEnumerator CambiarColor(float tiempo)
     {
-        if(camara.backgroundColor == diaColor)
+        while (true)
         {
-            camara.backgroundColor = nocheColor;
-        }
-        else
-        {
-            camara.backgroundColor = diaColor;
+            yield return new WaitForSeconds(tiempo);
+            camara.backgroundColor = camara.backgroundColor == diaColor ?
+                                        camara.backgroundColor = nocheColor :
+                                        camara.backgroundColor = diaColor;
         }
     }
 }
