@@ -5,24 +5,26 @@ using UnityEngine;
 public class GeneradorDiaNoche : MonoBehaviour
 {
     [SerializeField] private Camera camara;
-    [SerializeField] private Color nuevoColor;
+    [SerializeField] private Color nocheColor;
     [SerializeField] private float segundos;
 
-    private float tiempoRestante;
+    private Color diaColor;
 
     void Start()
     {
-        tiempoRestante = segundos;
+        diaColor = camara.backgroundColor;
+        InvokeRepeating("CambiarColor", segundos, segundos);
     }
 
-    void Update()
+    void CambiarColor()
     {
-        tiempoRestante -= Time.deltaTime;
-
-        if (tiempoRestante <= 0)
+        if(camara.backgroundColor == diaColor)
         {
-            camara.backgroundColor = nuevoColor;
-            enabled = false; // Desactiva el script para que no siga actualizando
+            camara.backgroundColor = nocheColor;
+        }
+        else
+        {
+            camara.backgroundColor = diaColor;
         }
     }
 }
