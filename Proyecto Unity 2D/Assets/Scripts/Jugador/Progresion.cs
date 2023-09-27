@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Progresion : MonoBehaviour
 {
-    public int nivel;
-    public int experiencia;
-    public int experienciaProximoNivel;
-    public int escalarExperiencia;
+
+    [SerializeField]
+    private PerfilJugador perfilJugador;
+    public PerfilJugador PerfilJugador { get => perfilJugador; }
 
     public void GanarExperiencia(int nuevaExperiencia)
     {
-        experiencia += nuevaExperiencia;
+        perfilJugador.Experiencia += nuevaExperiencia;
 
-        if (experiencia >= experienciaProximoNivel)
+        if (perfilJugador.Experiencia >= perfilJugador.Experiencia)
         {
             SubirNivel();
         }
@@ -21,8 +21,8 @@ public class Progresion : MonoBehaviour
 
     private void SubirNivel()
     {
-        nivel++;
-        experiencia -= experienciaProximoNivel;
-        experienciaProximoNivel += escalarExperiencia; 
+        perfilJugador.Nivel++;
+        perfilJugador.Experiencia -= perfilJugador.ExperienciaProximoNivel;
+        perfilJugador.ExperienciaProximoNivel += perfilJugador.EscalarExperiencia; 
     }
 }

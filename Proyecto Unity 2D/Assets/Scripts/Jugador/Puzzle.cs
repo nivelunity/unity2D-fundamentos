@@ -12,6 +12,8 @@ public class Puzzle : MonoBehaviour
     private Queue<GameObject> objetivos;
     private Stack<GameObject> items;
     private Dictionary<String, GameObject> inventario;
+
+    private Progresion progresionJugador;
         
     private void Awake()
     {
@@ -20,6 +22,8 @@ public class Puzzle : MonoBehaviour
         inventario = new Dictionary<String, GameObject>();
         CargarObjetivos();
         VerObjetivos();
+
+        progresionJugador = GetComponent<Progresion>();
     }
 
     private void CargarObjetivos()
@@ -59,6 +63,8 @@ public class Puzzle : MonoBehaviour
             inventario.Add(objetivo.name, objetivo);
             VerObjetivos();
             objetivo.transform.SetParent(bolsa.transform);
+
+            progresionJugador.GanarExperiencia(10);
         }
     }
 
@@ -68,6 +74,7 @@ public class Puzzle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1) && inventario.ContainsKey("Regadera"))
         {
             UsarInventario(inventario["Regadera"]);
+            Debug.Log(progresionJugador.PerfilJugador.Nivel);
         }
 
         if (Input.GetKeyDown(KeyCode.F2) && inventario.ContainsKey("Canasta")) {

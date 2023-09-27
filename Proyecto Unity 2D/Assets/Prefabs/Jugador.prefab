@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4252183710291250744}
   - component: {fileID: 2904814702653234741}
   - component: {fileID: 7424641431292659450}
+  - component: {fileID: 5682079507879606870}
   - component: {fileID: 4936419347694965912}
   - component: {fileID: 5074866709754378604}
   m_Layer: 0
@@ -209,6 +210,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bolsa: {fileID: 8308127932129619148}
+  padreObjetivos: {fileID: 0}
+--- !u!114 &5682079507879606870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576381285006865710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5553dcdb51a35d64bbcea9fa08f1e9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: 0
+  experiencia: 0
+  experienciaProximoNivel: 0
+  escalarExperiencia: 0
 --- !u!95 &4936419347694965912
 Animator:
   serializedVersion: 5
