@@ -10,12 +10,12 @@ public class Puzzle : MonoBehaviour
     [SerializeField] private Transform padreObjetivos;
 
     private Queue<GameObject> objetivos;
-    
-    private bool presionado = false;
-
+    private Stack<GameObject> items;
+        
     private void Awake()
     {
         objetivos = new Queue<GameObject>();
+        items = new Stack<GameObject>();
         CargarObjetivos();
         VerObjetivos();
     }
@@ -44,6 +44,8 @@ public class Puzzle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Coleccionable")) { return; }
+        if (objetivos.Count == 0) { return; }
+
 
         GameObject objetivo = objetivos.Peek();
 
@@ -51,6 +53,7 @@ public class Puzzle : MonoBehaviour
         {
             objetivo.SetActive(false);
             objetivos.Dequeue();
+            items.Push(objetivo);
             VerObjetivos();
             objetivo.transform.SetParent(bolsa.transform);
         }
@@ -60,10 +63,18 @@ public class Puzzle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            if (objetivos.Count == 0) return;
+            if (items.Count == 0) return;
 
-            presionado = !presionado;
-            //objetivos[0].SetActive(presionado);
+            UsarItem();
+           
         }
+    }
+
+    private void UsarItem()
+    {
+        GameObject item = items.Pop();
+        item.transform.SetParent(null);
+        item.transform.position = transform.position;
+        item.SetActive(true);
     }
 }
