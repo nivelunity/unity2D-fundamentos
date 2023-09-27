@@ -5,15 +5,18 @@ using UnityEngine;
 public class Progresion : MonoBehaviour
 {
 
-    [SerializeField]
-    private PerfilJugador perfilJugador;
-    public PerfilJugador PerfilJugador { get => perfilJugador; }
+    private Jugador jugador;
+
+    private void Awake()
+    {
+        jugador = GetComponent<Jugador>();
+    }
 
     public void GanarExperiencia(int nuevaExperiencia)
     {
-        perfilJugador.Experiencia += nuevaExperiencia;
+        jugador.PerfilJugador.Experiencia += nuevaExperiencia;
 
-        if (perfilJugador.Experiencia >= perfilJugador.Experiencia)
+        if (jugador.PerfilJugador.Experiencia >= jugador.PerfilJugador.Experiencia)
         {
             SubirNivel();
         }
@@ -21,8 +24,8 @@ public class Progresion : MonoBehaviour
 
     private void SubirNivel()
     {
-        perfilJugador.Nivel++;
-        perfilJugador.Experiencia -= perfilJugador.ExperienciaProximoNivel;
-        perfilJugador.ExperienciaProximoNivel += perfilJugador.EscalarExperiencia; 
+        jugador.PerfilJugador.Nivel++;
+        jugador.PerfilJugador.Experiencia -= jugador.PerfilJugador.ExperienciaProximoNivel;
+        jugador.PerfilJugador.ExperienciaProximoNivel += jugador.PerfilJugador.EscalarExperiencia; 
     }
 }

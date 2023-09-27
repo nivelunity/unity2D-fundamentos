@@ -74,7 +74,6 @@ public class Puzzle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1) && inventario.ContainsKey("Regadera"))
         {
             UsarInventario(inventario["Regadera"]);
-            Debug.Log(progresionJugador.PerfilJugador.Nivel);
         }
 
         if (Input.GetKeyDown(KeyCode.F2) && inventario.ContainsKey("Canasta")) {

@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5cdbafa39a7f241b0db145b49cd222, type: 3}
   m_Name: PerfilNormal
   m_EditorClassIdentifier: 
-  experienciaProximoNivel: 20
+  experienciaProximoNivel: 30
   escalarExperiencia: 10
+  velocidad: 8
+  fuerzaSalto: 10
+  vida: 5
+  jumpSFX: {fileID: 8300000, guid: d9374b6e9b0706f439bc2a22e1123145, type: 3}
+  collisionSFX: {fileID: 8300000, guid: 8d5af34e78e5ef44fb53bb396a45ba2f, type: 3}

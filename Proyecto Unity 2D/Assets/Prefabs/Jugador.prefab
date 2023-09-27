@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c26b97e60b57f9479e640c33b5cbde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 10
 --- !u!114 &4252183710291250744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,9 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9269d29cdb1a040a682d239cb85af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaSalto: 10
-  jumpSFX: {fileID: 8300000, guid: d9374b6e9b0706f439bc2a22e1123145, type: 3}
-  collisionSFX: {fileID: 8300000, guid: 8d5af34e78e5ef44fb53bb396a45ba2f, type: 3}
 --- !u!114 &2904814702653234741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f0c85c98a63b044b4c84bb557a2f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 5
+  perfilJugador: {fileID: 11400000, guid: 7d51c65e27c9e7042af60594b19bf012, type: 2}
 --- !u!114 &7424641431292659450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,10 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5553dcdb51a35d64bbcea9fa08f1e9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nivel: 0
-  experiencia: 0
-  experienciaProximoNivel: 0
-  escalarExperiencia: 0
 --- !u!95 &4936419347694965912
 Animator:
   serializedVersion: 5
