@@ -11,11 +11,13 @@ public class Puzzle : MonoBehaviour
 
     private Queue<GameObject> objetivos;
     private Stack<GameObject> items;
+    private Dictionary<String, GameObject> inventario;
         
     private void Awake()
     {
         objetivos = new Queue<GameObject>();
         items = new Stack<GameObject>();
+        inventario = new Dictionary<String, GameObject>();
         CargarObjetivos();
         VerObjetivos();
     }
@@ -54,6 +56,7 @@ public class Puzzle : MonoBehaviour
             objetivo.SetActive(false);
             objetivos.Dequeue();
             items.Push(objetivo);
+            inventario.Add(objetivo.name, objetivo);
             VerObjetivos();
             objetivo.transform.SetParent(bolsa.transform);
         }
@@ -61,18 +64,32 @@ public class Puzzle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+ 
+        if (Input.GetKeyDown(KeyCode.F1) && inventario.ContainsKey("Regadera"))
         {
-            if (items.Count == 0) return;
+            UsarInventario(inventario["Regadera"]);
+        }
 
-            UsarItem();
-           
+        if (Input.GetKeyDown(KeyCode.F2) && inventario.ContainsKey("Canasta")) {
+            UsarInventario(inventario["Canasta"]);
+        }
+        ;
+        if (Input.GetKeyDown(KeyCode.F3) && inventario.ContainsKey("Calabaza"))
+        {
+            UsarInventario(inventario["Calabaza"]);
         }
     }
 
     private void UsarItem()
     {
         GameObject item = items.Pop();
+        item.transform.SetParent(null);
+        item.transform.position = transform.position;
+        item.SetActive(true);
+    }
+
+    private void UsarInventario(GameObject item)
+    {
         item.transform.SetParent(null);
         item.transform.position = transform.position;
         item.SetActive(true);
