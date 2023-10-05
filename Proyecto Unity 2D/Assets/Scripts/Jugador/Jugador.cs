@@ -16,14 +16,19 @@ public class Jugador : MonoBehaviour
     [SerializeField]
     private UnityEvent<int> OnLivesChanged;
 
+    [SerializeField]
+    private UnityEvent<string> OnTextChanged;
+
     private void Start()
     {
         OnLivesChanged.Invoke(perfilJugador.Vida);
+        OnTextChanged.Invoke(perfilJugador.Vida.ToString());
     }
 
     public void ModificarVida(int puntos)
     {
         perfilJugador.Vida += puntos;
+        OnTextChanged.Invoke(perfilJugador.Vida.ToString());
         Debug.Log(EstasVivo());
     }
 
