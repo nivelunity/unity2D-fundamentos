@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class Jugador : MonoBehaviour
 {
@@ -8,12 +10,22 @@ public class Jugador : MonoBehaviour
     private PerfilJugador perfilJugador;
     public PerfilJugador PerfilJugador { get => perfilJugador; }
 
-    public void ModificarVida(float puntos)
+
+    //---------- Eventos del Jugador ----------//
+
+    [SerializeField]
+    private UnityEvent<int> OnLivesChanged;
+
+    private void Start()
+    {
+        OnLivesChanged.Invoke(perfilJugador.Vida);
+    }
+
+    public void ModificarVida(int puntos)
     {
         perfilJugador.Vida += puntos;
         Debug.Log(EstasVivo());
     }
-
 
     private bool EstasVivo()
     {
