@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1549740916003513982}
   - component: {fileID: 4252183710291250744}
   - component: {fileID: 2904814702653234741}
+  - component: {fileID: 7424641431292659450}
+  - component: {fileID: 5682079507879606870}
   - component: {fileID: 4936419347694965912}
   - component: {fileID: 5074866709754378604}
   m_Layer: 0
@@ -36,7 +38,8 @@ Transform:
   m_LocalPosition: {x: -0.32, y: -3, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8966363352310327353}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2675647560818305992
@@ -165,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c26b97e60b57f9479e640c33b5cbde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 10
 --- !u!114 &4252183710291250744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,9 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9269d29cdb1a040a682d239cb85af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaSalto: 10
-  jumpSFX: {fileID: 8300000, guid: d9374b6e9b0706f439bc2a22e1123145, type: 3}
-  collisionSFX: {fileID: 8300000, guid: 8d5af34e78e5ef44fb53bb396a45ba2f, type: 3}
 --- !u!114 &2904814702653234741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +192,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f0c85c98a63b044b4c84bb557a2f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 5
+  perfilJugador: {fileID: 11400000, guid: 7d51c65e27c9e7042af60594b19bf012, type: 2}
+--- !u!114 &7424641431292659450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576381285006865710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15264a164ce9f6f45930ca1f703d6c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bolsa: {fileID: 8308127932129619148}
+  padreObjetivos: {fileID: 0}
+--- !u!114 &5682079507879606870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576381285006865710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5553dcdb51a35d64bbcea9fa08f1e9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4936419347694965912
 Animator:
   serializedVersion: 5
@@ -311,3 +336,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8308127932129619148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8966363352310327353}
+  m_Layer: 0
+  m_Name: Bolsa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8966363352310327353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308127932129619148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3310062873536493572}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
