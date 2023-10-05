@@ -29,6 +29,7 @@ public class Jugador : MonoBehaviour
     {
         perfilJugador.Vida += puntos;
         OnTextChanged.Invoke(perfilJugador.Vida.ToString());
+        OnLivesChanged.Invoke(perfilJugador.Vida);
         Debug.Log(EstasVivo());
     }
 
