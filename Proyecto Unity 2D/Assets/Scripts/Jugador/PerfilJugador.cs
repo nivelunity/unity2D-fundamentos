@@ -39,8 +39,8 @@ public class PerfilJugador : ScriptableObject
 
     [Header("Configuraciones de Atributos")]
     [SerializeField]
-    [Range(5, 10)]
-    private int vida = 5;
+    [Range(1, 3)]
+    private int vida = 1;
     public int Vida { get => vida; set => vida = value; }
 
 
