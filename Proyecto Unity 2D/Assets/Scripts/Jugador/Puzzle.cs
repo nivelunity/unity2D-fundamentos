@@ -21,8 +21,7 @@ public class Puzzle : MonoBehaviour
         items = new Stack<GameObject>();
         inventario = new Dictionary<String, GameObject>();
         CargarObjetivos();
-        VerObjetivos();
-
+        //VerObjetivos();
         progresionJugador = GetComponent<Progresion>();
     }
 
