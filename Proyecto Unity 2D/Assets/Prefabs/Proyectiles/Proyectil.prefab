@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4483737553082260240}
   - component: {fileID: 4898358875276180329}
   - component: {fileID: 7155584967050422721}
-  - component: {fileID: 8965645830960614675}
   - component: {fileID: -3834763881691421315}
   m_Layer: 0
   m_Name: Proyectil
@@ -150,19 +149,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8965645830960614675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8425493659269479894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3554fdfe9ab23cc448d3fbca83031aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
 --- !u!114 &-3834763881691421315
 MonoBehaviour:
   m_ObjectHideFlags: 0
