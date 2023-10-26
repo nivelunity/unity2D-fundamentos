@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            score = PlayerPrefs.GetInt("Puntaje");
+            score = Mathf.Max(PlayerPrefs.GetInt("Puntaje"),0);
         }
         else
         {
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
-        PlayerPrefs.SetInt("Puntaje", score);
+        if (score < 0) score = 0;
     }
 
     public void ResetScore()

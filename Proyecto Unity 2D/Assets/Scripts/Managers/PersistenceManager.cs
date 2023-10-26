@@ -1,10 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PersistenceManager : MonoBehaviour
 {
     public static PersistenceManager Instance { get; private set; }
+
+    public static string KeyMusic { get => Instance.keyMusic; }
+    public static string KeyVolume { get => Instance.keyVolume; }
+    public static string KeyUser {get => Instance.keyUser; }
+    public static string KeyScore { get => Instance.keyScore; }
+
+
+    [SerializeField] private string keyMusic, keyVolume, keyUser, keyScore;
+
+    
+
+
+
 
     private void Awake()
     {
@@ -77,18 +91,18 @@ public class PersistenceManager : MonoBehaviour
 
     public void SaveMusicConfig(bool status)
     {
-        SetBool("Music", status);
+        SetBool(keyMusic, status);
         Debug.Log("El jugador presiono " + status);
     }
     public void SaveVolumenConfig(float volume)
     {
-        SetFloat("MusicVolumen", volume);
+        SetFloat(keyVolume, volume);
         Debug.Log(" Volumen Escogido " + volume);
     }
 
     public void SaveUserName(string value)
     {
-        SetString("UserName", value);
+        SetString(keyUser, value);
         Debug.Log(" El nombre es " + value);
     }
 }

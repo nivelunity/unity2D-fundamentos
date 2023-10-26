@@ -14,14 +14,18 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         // Asignar valores iniciales
-        mySlider.value = PersistenceManager.Instance.GetFloat("MusicVolumen");
-        myToggle.isOn = PersistenceManager.Instance.GetBool("Music"); 
-        myInput.text = PersistenceManager.Instance.GetString("UserName"); 
+        mySlider.value = PersistenceManager.Instance.GetFloat(PersistenceManager.KeyVolume);
+        myToggle.isOn = PersistenceManager.Instance.GetBool(PersistenceManager.KeyMusic); 
+        myInput.text = PersistenceManager.Instance.GetString(PersistenceManager.KeyUser); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        PersistenceManager.Instance.Save();
+    }
+
+    private void OnEnable()
+    {
+        PersistenceManager.Instance.SetInt(PersistenceManager.KeyScore, GameManager.Instance.GetScore());
     }
 }
