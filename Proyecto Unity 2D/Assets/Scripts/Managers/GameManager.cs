@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            score = 1000;
+            score = PlayerPrefs.GetInt("Puntaje");
         }
         else
         {
@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
+        PlayerPrefs.SetInt("Puntaje", score);
     }
 
     public void ResetScore()
