@@ -80,4 +80,15 @@ public class PersistenceManager : MonoBehaviour
         SetBool("Music", status);
         Debug.Log("El jugador presiono " + status);
     }
+    public void SaveVolumenConfig(float volume)
+    {
+        SetFloat(" MusicVolumen", volume);
+        Debug.Log(" Volumen Escogido " + volume);
+    }
+
+    public void SaveUserName(string value)
+    {
+        SetString("UserName", value);
+        Debug.Log(" El nombre es " + value);
+    }
 }
