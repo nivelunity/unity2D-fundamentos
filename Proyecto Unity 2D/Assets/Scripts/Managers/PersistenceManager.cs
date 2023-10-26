@@ -82,7 +82,7 @@ public class PersistenceManager : MonoBehaviour
     }
     public void SaveVolumenConfig(float volume)
     {
-        SetFloat(" MusicVolumen", volume);
+        SetFloat("MusicVolumen", volume);
         Debug.Log(" Volumen Escogido " + volume);
     }
 
