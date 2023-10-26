@@ -31,7 +31,7 @@ public class Jugador : MonoBehaviour
         GameManager.Instance.AddScore(puntos * 100);
         OnTextChanged.Invoke(GameManager.Instance.GetScore().ToString());
         OnLivesChanged.Invoke(perfilJugador.Vida);
-        Debug.Log(EstasVivo());
+        //Debug.Log(EstasVivo());
     }
 
     private bool EstasVivo()
@@ -43,6 +43,6 @@ public class Jugador : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Meta")) { return; }
 
-        Debug.Log("GANASTE");
+        //Debug.Log("GANASTE");
     }
 }
