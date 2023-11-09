@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Saltar : MonoBehaviour
 {
+    [SerializeField] float rayDistance;
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] float coyoteConfig = 0.1f;
 
     private Jugador jugador;
+    private float coyoteTime;
 
     // Variables de uso interno en el script
     private bool puedoSaltar = true;
@@ -31,9 +35,17 @@ public class Saltar : MonoBehaviour
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+        puedoSaltar = IsGrounded();
+
+        if (puedoSaltar)
         {
-            puedoSaltar = false;
+            coyoteTime = Time.time + coyoteConfig;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && (Time.time <= coyoteTime))
+        {
+            saltando = true;
+            Debug.Log("Saltando");
 
             if (miAudioSource.isPlaying) { return; }
             miAudioSource.PlayOneShot(jugador.PerfilJugador.JumpSFX);
@@ -42,21 +54,30 @@ public class Saltar : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!puedoSaltar && !saltando)
+        if (saltando)
         {
+            Debug.Log("Aplicar fuerza de salto");
             miRigidbody2D.AddForce(Vector2.up * jugador.PerfilJugador.FuerzaSalto, ForceMode2D.Impulse);
-            saltando = true;
+            saltando = false;
         }
     }
 
     // Codigo ejecutado cuando el jugador colisiona con otro objeto
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        puedoSaltar = true;
-        saltando = false;
-
         if(miAudioSource.isPlaying) { return; }
         miAudioSource.PlayOneShot(jugador.PerfilJugador.CollisionSFX);
     }
 
+    private bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, groundLayer);
+        return hit.collider != null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector2.down * rayDistance);
+    }
 }
