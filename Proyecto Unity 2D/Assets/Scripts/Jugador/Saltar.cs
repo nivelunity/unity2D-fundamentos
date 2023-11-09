@@ -8,6 +8,7 @@ public class Saltar : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float coyoteConfig = 0.1f;
     [SerializeField] int maxJumpCount = 2;
+    [SerializeField] GameObject jumpTrail;
 
     private Jugador jugador;
     private float coyoteTime;
@@ -16,6 +17,7 @@ public class Saltar : MonoBehaviour
     private bool puedoSaltar = true;
     private bool saltando = false;
     private int jumpCount;
+    private bool canDash;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
@@ -38,21 +40,29 @@ public class Saltar : MonoBehaviour
     void Update()
     {
         puedoSaltar = IsGrounded();
+        jumpTrail.SetActive(!puedoSaltar);
 
         if (puedoSaltar)
         {
             coyoteTime = Time.time + coyoteConfig;
             jumpCount = 0;
+            canDash = true;
+           
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && (Time.time <= coyoteTime) && (jumpCount < maxJumpCount))
         {
             saltando = true;
             jumpCount++;
-            Debug.Log("Saltando");
 
             if (miAudioSource.isPlaying) { return; }
             miAudioSource.PlayOneShot(jugador.PerfilJugador.JumpSFX);
+        }
+
+
+        if (canDash && !puedoSaltar && Input.GetKeyDown(KeyCode.E))
+        {
+           canDash = false;
         }
     }
 
@@ -63,6 +73,13 @@ public class Saltar : MonoBehaviour
             Debug.Log("Aplicar fuerza de salto");
             miRigidbody2D.AddForce(Vector2.up * jugador.PerfilJugador.FuerzaSalto, ForceMode2D.Impulse);
             saltando = false;
+        }
+
+        if(!canDash)
+        {
+            Debug.Log("DASH");
+            miRigidbody2D.velocity = new Vector2(25f * Input.GetAxisRaw("Horizontal"), miRigidbody2D.velocity.y);
+            canDash = true;
         }
     }
 
