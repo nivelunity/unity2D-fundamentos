@@ -18,6 +18,7 @@ public class Saltar : MonoBehaviour
     private bool saltando = false;
     private int jumpCount;
     private bool canDash;
+    private bool canDown;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
@@ -46,13 +47,14 @@ public class Saltar : MonoBehaviour
         {
             coyoteTime = Time.time + coyoteConfig;
             jumpCount = 0;
-            canDash = true;
-           
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && (Time.time <= coyoteTime) && (jumpCount < maxJumpCount))
         {
             saltando = true;
+            canDash = true;
+            canDown = true;
+
             jumpCount++;
 
             if (miAudioSource.isPlaying) { return; }
@@ -63,6 +65,11 @@ public class Saltar : MonoBehaviour
         if (canDash && !puedoSaltar && Input.GetKeyDown(KeyCode.E))
         {
            canDash = false;
+        }
+
+        if (canDown && !puedoSaltar && Input.GetKeyDown(KeyCode.R))
+        {
+           canDown = false;
         }
     }
 
@@ -80,6 +87,14 @@ public class Saltar : MonoBehaviour
             Debug.Log("DASH");
             miRigidbody2D.velocity = new Vector2(25f * Input.GetAxisRaw("Horizontal"), miRigidbody2D.velocity.y);
             canDash = true;
+        }
+
+
+        if (!canDown)
+        {
+            Debug.Log("DOWN");
+            miRigidbody2D.velocity = new Vector2(miRigidbody2D.velocity.x, -25f);
+            canDown = true;
         }
     }
 
