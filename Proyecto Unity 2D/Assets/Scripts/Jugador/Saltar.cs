@@ -10,6 +10,9 @@ public class Saltar : MonoBehaviour
     [SerializeField] int maxJumpCount = 2;
     [SerializeField] GameObject jumpTrail;
 
+    [SerializeField] float maxJumpForce = 10f;
+    [SerializeField] float jumpForceIncreaseSpeed = 2f;
+
     private Jugador jugador;
     private float coyoteTime;
 
@@ -19,6 +22,7 @@ public class Saltar : MonoBehaviour
     private int jumpCount;
     private bool canDash;
     private bool canDown;
+    private float auxForce = 5f;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
@@ -49,7 +53,13 @@ public class Saltar : MonoBehaviour
             jumpCount = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && (Time.time <= coyoteTime) && (jumpCount < maxJumpCount))
+        if (Input.GetKey(KeyCode.Space))
+        {
+            auxForce = Mathf.Min(auxForce + jumpForceIncreaseSpeed * Time.deltaTime, maxJumpForce);
+            Debug.Log(auxForce);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && (Time.time <= coyoteTime) && (jumpCount < maxJumpCount))
         {
             saltando = true;
             canDash = true;
@@ -78,7 +88,7 @@ public class Saltar : MonoBehaviour
         if (saltando)
         {
             Debug.Log("Aplicar fuerza de salto");
-            miRigidbody2D.AddForce(Vector2.up * jugador.PerfilJugador.FuerzaSalto, ForceMode2D.Impulse);
+            miRigidbody2D.AddForce(Vector2.up * Mathf.Max(jugador.PerfilJugador.FuerzaSalto,auxForce), ForceMode2D.Impulse);
             saltando = false;
         }
 
