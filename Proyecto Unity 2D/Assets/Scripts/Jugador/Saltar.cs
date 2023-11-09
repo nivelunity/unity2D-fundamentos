@@ -7,6 +7,7 @@ public class Saltar : MonoBehaviour
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float coyoteConfig = 0.1f;
+    [SerializeField] int maxJumpCount = 2;
 
     private Jugador jugador;
     private float coyoteTime;
@@ -14,6 +15,7 @@ public class Saltar : MonoBehaviour
     // Variables de uso interno en el script
     private bool puedoSaltar = true;
     private bool saltando = false;
+    private int jumpCount;
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
@@ -40,11 +42,13 @@ public class Saltar : MonoBehaviour
         if (puedoSaltar)
         {
             coyoteTime = Time.time + coyoteConfig;
+            jumpCount = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && (Time.time <= coyoteTime))
+        if (Input.GetKeyDown(KeyCode.Space) && (Time.time <= coyoteTime) && (jumpCount < maxJumpCount))
         {
             saltando = true;
+            jumpCount++;
             Debug.Log("Saltando");
 
             if (miAudioSource.isPlaying) { return; }
